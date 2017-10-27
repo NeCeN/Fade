@@ -11,7 +11,6 @@
 			position:absolute;
 			width:800px;
 			height:480px;
-			opacity:0;
 		}		
 		#grey{
 			background-color:#000000;
@@ -27,30 +26,23 @@
 	<div id='f0'></div>
 	<div id='f1'></div>
 	<div id='grey'></div>
-
+	<script src="jquery.min.js"></script>
 	<script type='text/javascript'>
-	var f=1;
-	var f1opa=0
+
+	var f1_fade=1;
 	function fade()
 	{
-		f1opa+=f;
-		if (f1opa==100 || f1opa==0)
+		console.log(f1_fade);
+		if (f1_fade==-1)
 		{
-			if (f==1){
-				document.getElementById('f0').style.backgroundColor="rgb("+Math.floor((Math.random() * 256))+", "+Math.floor((Math.random() * 256))+", "+Math.floor((Math.random() * 256))+")";
-			}
-			else
-			{
-				document.getElementById('f1').style.backgroundColor="rgb("+Math.floor((Math.random() * 256))+", "+Math.floor((Math.random() * 256))+", "+Math.floor((Math.random() * 256))+")";
-			}
-
-			f=-f;
+			$("#f1").fadeOut(2000,function(){document.getElementById('f1').style.backgroundColor="rgb("+Math.floor((Math.random() * 256))+", "+Math.floor((Math.random() * 256))+", "+Math.floor((Math.random() * 256))+")";});
 		}
 		else
 		{
-			setTimeout(function(){fade();},20);
+			$("#f1").fadeIn(2000,function(){document.getElementById('f0').style.backgroundColor="rgb("+Math.floor((Math.random() * 256))+", "+Math.floor((Math.random() * 256))+", "+Math.floor((Math.random() * 256))+")";});
 		}
-		document.getElementById('f1').style.opacity=f1opa/100;
+		f1_fade=-f1_fade;
+		
 	}
 	setInterval(function(){fade();},5000);
 	</script>
