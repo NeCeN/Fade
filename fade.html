@@ -1,1 +1,57 @@
-<html>	<style type="text/css">		#f0{			background-color:#AA0000;			position:absolute;			width:800px;			height:480px;		}		#f1{			background-color:#00AA00;			position:absolute;			width:800px;			height:480px;			opacity:0;		}			</style>	<div id='f0'></div>	<div id='f1'></div>	<script type='text/javascript'>	var f=1;	var f1opa=0	function fade()	{		f1opa+=f;		if (f1opa==100 || f1opa==0)		{			if (f==1){				document.getElementById('f0').style.backgroundColor="rgb("+Math.floor((Math.random() * 256))+", "+Math.floor((Math.random() * 256))+", "+Math.floor((Math.random() * 256))+")";			}			else			{				document.getElementById('f1').style.backgroundColor="rgb("+Math.floor((Math.random() * 256))+", "+Math.floor((Math.random() * 256))+", "+Math.floor((Math.random() * 256))+")";			}			f=-f;		}		else		{			setTimeout(function(){fade();},20);		}		document.getElementById('f1').style.opacity=f1opa/100;	}	setInterval(function(){fade();},5000);	</script></html>
+<html>
+	<style type="text/css">
+		#f0{
+			background-color:#AA0000;
+			position:absolute;
+			width:800px;
+			height:480px;
+		}
+		#f1{
+			background-color:#00AA00;
+			position:absolute;
+			width:800px;
+			height:480px;
+			opacity:0;
+		}		
+		#grey{
+			background-color:#000000;
+			position:absolute;
+			width:800px;
+			height:480px;
+			opacity: 0.5;
+
+
+		}
+	</style>
+
+	<div id='f0'></div>
+	<div id='f1'></div>
+	<div id='grey'></div>
+
+	<script type='text/javascript'>
+	var f=1;
+	var f1opa=0
+	function fade()
+	{
+		f1opa+=f;
+		if (f1opa==100 || f1opa==0)
+		{
+			if (f==1){
+				document.getElementById('f0').style.backgroundColor="rgb("+Math.floor((Math.random() * 256))+", "+Math.floor((Math.random() * 256))+", "+Math.floor((Math.random() * 256))+")";
+			}
+			else
+			{
+				document.getElementById('f1').style.backgroundColor="rgb("+Math.floor((Math.random() * 256))+", "+Math.floor((Math.random() * 256))+", "+Math.floor((Math.random() * 256))+")";
+			}
+
+			f=-f;
+		}
+		else
+		{
+			setTimeout(function(){fade();},20);
+		}
+		document.getElementById('f1').style.opacity=f1opa/100;
+	}
+	setInterval(function(){fade();},5000);
+	</script>
+</html>
