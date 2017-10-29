@@ -1,1 +1,3 @@
-Slideshow test in Javascript with two div animation.
+#Fade project
+
+Slideshow animation test in Javascript with two div.
